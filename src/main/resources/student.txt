@@ -1,0 +1,2 @@
+stu1,11,male
+stu2,22,female
