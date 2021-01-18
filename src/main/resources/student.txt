@@ -1,2 +1,1 @@
-stu1,11,male
-stu2,22,female
+Stu name: stu1, Stu gender: male, Stu age: 11Stu name: stu2, Stu gender: female, Stu age: 22
