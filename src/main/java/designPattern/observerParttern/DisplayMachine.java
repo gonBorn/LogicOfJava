@@ -21,8 +21,6 @@ public class DisplayMachine implements Observer {
     }
 
     private void display(Player o) {
-        System.out.println("### Message came from display machine ###");
-        String info = String.format(Locale.ENGLISH, "Congratulations on player %d's promotion to level %d.", o.getPlayerId(), o.getLevel());
-        System.out.println(info);
+        System.out.println(String.format(Locale.ENGLISH, "Congratulations on player %d's promotion to level %d.", o.getPlayerId(), o.getLevel()));
     }
 }
