@@ -11,7 +11,7 @@ public class FileUtil {
     public static final String UTF_8 = "UTF-8";
 
     public static void copyFile(File source, File target, boolean append) {
-        try(LineIterator iterator = FileUtils.lineIterator(source, UTF_8)) {
+        try (LineIterator iterator = FileUtils.lineIterator(source, UTF_8)) {
             while (iterator.hasNext()) {
                 final String line = iterator.nextLine();
                 // writeStringToFile写文件不会换行
@@ -19,7 +19,7 @@ public class FileUtil {
                 insertNewLine(target);
             }
         } catch (IOException e) {
-            System.out.print("### Fail to copy " + source + " to "+ target + " ###");
+            System.out.print("### Fail to copy " + source + " to " + target + " ###");
             System.out.println();
         }
     }
@@ -36,5 +36,13 @@ public class FileUtil {
             }
         }
         System.out.println(file + " can be written.");
+    }
+
+    public static File isFileExist(String path) {
+        File file = new File(path);
+        if (!file.exists()) {
+            throw new IllegalArgumentException("Path " + file + " does not exist");
+        }
+        return file;
     }
 }
