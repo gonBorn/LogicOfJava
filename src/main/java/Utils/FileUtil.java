@@ -6,16 +6,18 @@ import org.apache.commons.io.LineIterator;
 import java.io.File;
 import java.io.IOException;
 
+import static java.nio.charset.StandardCharsets.UTF_8;
+
 public class FileUtil {
     public static final String WRAP = System.lineSeparator();
-    public static final String UTF_8 = "UTF-8";
+    public static final String CHARSET_UTF8 = UTF_8.toString();
 
     public static void copyFile(File source, File target, boolean append) {
-        try (LineIterator iterator = FileUtils.lineIterator(source, UTF_8)) {
+        try (LineIterator iterator = FileUtils.lineIterator(source, CHARSET_UTF8)) {
             while (iterator.hasNext()) {
                 final String line = iterator.nextLine();
                 // writeStringToFile写文件不会换行
-                FileUtils.writeStringToFile(target, line, UTF_8, append);
+                FileUtils.writeStringToFile(target, line, CHARSET_UTF8, append);
                 insertNewLine(target);
             }
         } catch (IOException e) {
@@ -25,7 +27,7 @@ public class FileUtil {
     }
 
     public static void insertNewLine(File target) throws IOException {
-        FileUtils.writeStringToFile(target, WRAP, UTF_8, true);
+        FileUtils.writeStringToFile(target, WRAP, CHARSET_UTF8, true);
     }
 
     public static void setFileWritable(File file) {

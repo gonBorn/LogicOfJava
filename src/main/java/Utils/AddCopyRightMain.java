@@ -56,7 +56,7 @@ public class AddCopyRightMain {
             File tempFile = File.createTempFile("TempFile4Copyright", null);
 
             // 在临时文件中写入copyright, 覆盖之前的临时文件
-            FileUtils.writeStringToFile(tempFile, copyright, FileUtil.UTF_8, false);
+            FileUtils.writeStringToFile(tempFile, copyright, FileUtil.CHARSET_UTF8, false);
             if (!Objects.nonNull(copyright)) {
                 FileUtil.insertNewLine(tempFile);
             }
@@ -77,7 +77,7 @@ public class AddCopyRightMain {
     }
 
     private static boolean checkIfCopyRightExist(File file) {
-        try (LineIterator iterator = FileUtils.lineIterator(file, FileUtil.UTF_8)) {
+        try (LineIterator iterator = FileUtils.lineIterator(file, FileUtil.CHARSET_UTF8)) {
             while (iterator.hasNext()) {
                 final String line = iterator.nextLine().trim();
                 if (StringUtils.isBlank(line)) {
