@@ -7,7 +7,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FileUtil {
-    public static final String WRAP = "\r\n";
+    public static final String WRAP = System.lineSeparator();
     public static final String UTF_8 = "UTF-8";
 
     public static void copyFile(File source, File target, boolean append) {
